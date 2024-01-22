@@ -8,7 +8,6 @@ using UnityEngine;
 namespace Lessson2
 {
 
-
     public class AbsCapsule: AbsRotat
     {
         protected override void Rotate()
