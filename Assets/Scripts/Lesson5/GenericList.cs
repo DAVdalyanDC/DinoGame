@@ -8,7 +8,7 @@ namespace Lesson5
         
         private T[] _array;
         public int Capacity=> _array.Length;
-        public int Count {get; private set}
+        public int Count {get; private set; }
         
       
         public List(int capacity = 0)
@@ -21,14 +21,14 @@ namespace Lesson5
 
         public void Add(T item)
         {
-            if(Count==capacity)
+            if(Count==Capacity)
             {
-                var _newArray=new T[Capacity * 2];
+                var _newArray =new T[Capacity * 2];
                 for(int i=0;i<Count;i++)
                 {
-                    newArray[i]=_array[i];
+                    _newArray[i]=_array[i];
                 }
-                _array=newArray;
+                _array=_newArray;
             }
             _array[Count]=item;
             Count++;
@@ -49,9 +49,16 @@ namespace Lesson5
             }
             for(int i=index;i<Count;i++)
             {
-                _array[i]=[i+1]
+                _array[i] = [i + 1];
             }
             return found;
+        }
+
+        public class EqualityCompare<T1>
+        {
+            public class Default
+            {
+            }
         }
 
         public bool RemoveAt(int index)
@@ -70,7 +77,7 @@ namespace Lesson5
             var _newArray= new T[Count-from];
             for(int i=from,i<Count;i++)
             {
-                _newArray[i-from]=_array[i]
+                _newArray[i - from] = _array[i];
             }
             Count=from;
             for(int i=0;i<list.Count;++i)
@@ -81,7 +88,12 @@ namespace Lesson5
             {
                 Add(_newArray[i]);
             }
-        } 
+        }
+
+        protected T this[int i]
+        {
+            get { throw new System.NotImplementedException(); }
+        }
 
         public bool RemoveRange(int from, int to)
         {
