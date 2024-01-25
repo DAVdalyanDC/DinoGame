@@ -49,12 +49,38 @@ namespace Lesson6
 
         public void RemoveFirst()
         {
-            
+            if (_headNode == null)
+            {
+                Debug.Log("list is empty");
+                return;
+            }
+
+            _headNode = _headNode.Next;
+
         }
 
         public void RemoveLast()
         {
-            
+            if (_headNode == null)
+            {
+                Debug.Log("list is empty");
+                return;
+            }
+
+            if (_headNode.Next == null)
+            {
+                _headNode = null;
+                return;
+            }
+
+            LinkedListNode<T> current = _headNode;
+            while (current.Next!=null)
+            {
+                current = current.Next;
+            }
+
+            current.Next = null;
+
         }
 
         public void Clear()
@@ -64,7 +90,12 @@ namespace Lesson6
 
         public void PrintList()
         {
-            
+            LinkedListNode<T> current = _headNode;
+            while (current!=null)
+            {
+                Debug.Log(current.Val + "   ");
+                current = current.Next;
+            }
         }
     }
 }

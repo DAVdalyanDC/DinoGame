@@ -14,9 +14,8 @@ namespace Lesson5
         public List(int capacity = 0)
         {
             capacity= capacity==0 ? 4 : capacity;
-            _array= new T(capacity);
+            _array= new T[capacity];
             Count=0;
-
         }
 
         public void Add(T item)
@@ -49,7 +48,7 @@ namespace Lesson5
             }
             for(int i=index;i<Count;i++)
             {
-                _array[i] = [i + 1];
+                _array[i] = _array[i + 1];
             }
             return found;
         }
@@ -75,11 +74,14 @@ namespace Lesson5
         public void AddRange(int from, List<T> list)
         {
             var _newArray= new T[Count-from];
-            for(int i=from,i<Count;i++)
+            
+            for(int i=from;i<Count;i++)
             {
                 _newArray[i - from] = _array[i];
             }
+            
             Count=from;
+            
             for(int i=0;i<list.Count;++i)
             {
                 Add(list[i]);
