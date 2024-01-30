@@ -6,7 +6,6 @@ using System.IO;
 
 namespace Lesson3 
 {
-
     public class FileLogger : MonoBehaviour, ILog
     {
         [SerializeField] private LogSender _logSender;
